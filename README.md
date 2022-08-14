@@ -18,7 +18,7 @@
 - rust (rls) by rust-lang for linting
 - better TOML by bung... for toml syntax highlighting.
 
-# folder structure
+# Folder structure
 
 - `Cargo.toml` - is pretty much like package.json for node.
 - `src` is where you write all your rust code.
@@ -35,3 +35,4 @@
 
 - [Print Statement & Formatting](/docs/0x1print.md).
 - [Variables In Rust](/docs/0x2vars.md)
+<!-- 19:53 -->

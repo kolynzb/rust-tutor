@@ -1,6 +1,6 @@
-# Print Formatting In Rust.
+# Must knows
 
-- Functions are declared with `fn` and the main program must have a main fuction.
+- Functions are declared with `fn` keyword and the main program must have a main fuction.
 
 ```rs
 fn main(){
@@ -24,7 +24,7 @@ fn main() {
 }
 ```
 
-# Basic Formating
+# Basic Print Formatting In Rust.
 
 - To print an integer or a variable you would have to use place holders.
   `println!("{}",2)`
