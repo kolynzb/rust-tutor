@@ -1,3 +1,7 @@
+mod print;
+mod vars;
 fn main() {
-    println!("Hello, world!");
+    // to call the function in print
+    print::run();
+    
 }
