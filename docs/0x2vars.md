@@ -13,3 +13,14 @@
 - you must explicitly define a type and the name must be uppercase.
   `const ID:i32 =001;`
 - This is simply a constant called "ID" with a type of interger 32bit.
+
+## Assigning multiple varibles.
+
+- _Multiple variable assignment_
+
+```rs
+ let (school,year)=("kyu",1);
+ println!("am at {} in year {}",school,year);
+
+```
+
