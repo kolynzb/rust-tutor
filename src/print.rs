@@ -17,7 +17,7 @@ pub fn run(){
 
     println!("Binary: {:b} Hex:{:x} Octal:{:o}",10,10,10);
 
-    // Placeholder for debug trait
+    // Placeholder for debug trait (debug placeholder).
     println!("{:?}",(12,true,"hello"));
 
     // basic Arithmetic

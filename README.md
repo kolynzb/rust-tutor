@@ -33,6 +33,9 @@
 
 # Contents
 
-- [Print Statement & Formatting](/docs/0x1print.md).
-- [Variables In Rust](/docs/0x2vars.md)
-<!-- 19:53 -->
+- [Print Statement & Formatting](/docs/0x1print.md) with [code](/src/print.rs).
+- [Variables In Rust](/docs/0x2vars.md) with [code](/src/vars.rs).
+- [Datatypes In Rust](/docs/0x03data-types.md) with [code](/src/types.rs).
+  - [Strings In Rust](/docs/0x04-Strings.md) with [code](/src/strings.rs).
+
+<!-- 34:26 -->

@@ -1,6 +1,7 @@
 # Variables In Rust.
 
 - _Real Quick though_. In rust, variables are immutable by default which is not the case in other programming languages.(_when defined they cannot be reassigned a new value_)
+- And the convention is rust for variable names is snake case (_variable_name_).
 - They hold primitive data or references to data.
 - Rust is a block-scoped language.
 - we use `let` keyword to initialize a variable.
@@ -23,4 +24,3 @@
  println!("am at {} in year {}",school,year);
 
 ```
-
