@@ -1,7 +1,11 @@
 mod print;
 mod vars;
+
 fn main() {
-    // to call the function in print
+    // 01-PRINT AND FORMATTING.
     print::run();
+    // 02-VARIABLES.
+    vars::run();
+
     
 }
