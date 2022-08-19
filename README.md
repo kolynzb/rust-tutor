@@ -37,5 +37,5 @@
 - [Variables In Rust](/docs/0x2vars.md) with [code](/src/vars.rs).
 - [Datatypes In Rust](/docs/0x03data-types.md) with [code](/src/types.rs).
   - [Strings In Rust](/docs/0x04-Strings.md) with [code](/src/strings.rs).
-
+- [Tuples in Rust](/docs/0x05-Tuples.md) with [code](/src/tuples.rs)
 <!-- 34:26 -->
