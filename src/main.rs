@@ -3,6 +3,7 @@ mod vars;
 mod types;
 mod strings;
 mod tuples;
+mod arrays;
 fn main() {
     // 01-PRINT AND FORMATTING.
     print::run();
@@ -14,4 +15,6 @@ fn main() {
     strings::run();
     // 05-Tuples
     tuples::run();
+    // 06-Arrays
+    arrays::run();
 }
