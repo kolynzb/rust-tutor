@@ -18,4 +18,6 @@ fn main() {
     tuples::run();
     // 06-Arrays
     arrays::run();
+    // 07-Vectors
+    vectors::run();
 }
