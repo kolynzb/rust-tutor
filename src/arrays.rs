@@ -9,8 +9,11 @@ pub fn run(){
     // reassign value 
     numbers[2]=20;
     // get array Length
-    println!("array lenght {}", numbers.len())
+    println!("array lenght {}", numbers.len());
     // Arrays are stack allocated 
     // Get memory taken by array in bytes
-    println!("Array occupies {} bytes",std::mem::size_of_val(&numbers) )
+    println!("Array occupies {} bytes",std::mem::size_of_val(&numbers));
+    // Get Slice from one to three
+    let slice: &[i32] = &numbers[1..3];
+    println!("Slice: {:?}",slice);
 }

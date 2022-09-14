@@ -4,6 +4,7 @@ mod types;
 mod strings;
 mod tuples;
 mod arrays;
+mod vectors;
 fn main() {
     // 01-PRINT AND FORMATTING.
     print::run();

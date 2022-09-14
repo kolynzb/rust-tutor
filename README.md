@@ -38,4 +38,7 @@
 - [Datatypes In Rust](/docs/0x03data-types.md) with [code](/src/types.rs).
   - [Strings In Rust](/docs/0x04-Strings.md) with [code](/src/strings.rs).
 - [Tuples in Rust](/docs/0x05-Tuples.md) with [code](/src/tuples.rs)
+- [Arrays in Rust](/docs/0x06-Arrays.md) with [code](/src/arrays.rs)
+- [Vectors in Rust](/docs/0x07-Vectors.md) with [code](/src/vectors.rs)
+
 <!-- 52:49 -->
