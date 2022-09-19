@@ -10,7 +10,7 @@ fn main(){
 
 - `pub` makes the function public.
 - `mod` imports a funtion from one file to another.
-- Print statements in rust are written in the `println!("hello ")` function.
+- Print statements in rust are written using a `println!("hello ")` macro(_function_).
 
 `main.rs`
 
@@ -41,3 +41,6 @@ fn main() {
   `println!("10 + 10 = {}",10 + 10);`
 - Placeholder for debug traits.
   `println!("{:?}",(12,true,"hello")); `
+
+- To get user input use import std `use std::io` and
+  `let mut name=String::new();`
