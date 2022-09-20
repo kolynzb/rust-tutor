@@ -93,3 +93,4 @@ let emoji:char = '\u{1F600}';
 
 ## Arrays
 - Another way to have a collection of multiple values is with an array. Unlike a tuple, every element of an array must have the same type. Arrays in Rust are different from arrays in some other languages because arrays in Rust have a fixed length, like tuples.[Click For more info 🔥](/docs/0x06-Arrays.md).
+

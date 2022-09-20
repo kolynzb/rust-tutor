@@ -39,7 +39,6 @@
   println!("Array occupies {} bytes",std::mem::size_of_val(&numbers));
   ```
 - Get Slice from one to three
-<!-- TODO: WHAT IS THE AND PRESANT FOR -->
 
 ```rs
   let slice: &[i32] = &numbers[1..3];

@@ -32,10 +32,20 @@ let spaces = spaces.len();
 
 - If you try to use `mut` for this it will result in an error
 
-# Datatypes
+## Datatypes
 
 - Every value in Rust is of a certain data type, which tells Rust what kind of data is being specified so it knows how to work with that data.
 - Keep in mind that rust is a _statically typed_ language (_knows the types of all variables at compile time_)
 - The compiler can usually infer what type we want to use based on the value and how we use it.We must annotate types whenever we intend to convert them to other types later.
 - For more on Datatypes [click me 💀](/docs/0x03data-types.md)
 
+## Functions
+
+- Functions are pervarsive in Rust. [👉Click for more info 👈](/docs/0x08-Functions.md)
+
+## Comments
+
+- Comments in rust are prefixed with `//`.
+  `// this is a comment`
+
+## Control Flow
