@@ -5,6 +5,7 @@
 `syntax`
 
 ```rs
+ let a = [1, 2, 3, 4];
 // initialization
  let array_name:[datatype;length]=[element1,element2];
 
@@ -16,6 +17,10 @@
 
 ```
 
+- Arrays are useful when you want your data allocated on the stack rather than the heap or when you want to ensure you always have a fixed number of element.
+
+## Accessing Elements
+
 - To get a single value we can use square braket notation with the index of the element.
   ` println!("{}", numbers[0]);`
 
@@ -23,6 +28,9 @@
   ` let mut numbers:[i32;5]=[1,2,3,4,5];`
 - Reassign values to arrays
   `numbers[2]=20;`
+
+## Operations on Arrays
+
 - Get Array Length
   `println!("array lenght {}", numbers.len())`
 - **Note that** Arrays are stack allocated.

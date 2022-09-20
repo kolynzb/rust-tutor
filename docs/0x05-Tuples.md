@@ -7,3 +7,13 @@
 
 - To reference the elements in the tuple, use dot notation.
   ` println!("{} is from {} and is {}",person.0,person.1,person.2);`
+
+- To get values from tuple we destructure it using pattern matching.
+
+```rs
+fn main() {
+  let tup = (500, 6.4, 1);
+  let (x, y, z) = tup;
+  println!("The value of y is: {}", y);
+}
+```

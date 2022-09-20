@@ -37,4 +37,5 @@ let spaces = spaces.len();
 - Every value in Rust is of a certain data type, which tells Rust what kind of data is being specified so it knows how to work with that data.
 - Keep in mind that rust is a _statically typed_ language (_knows the types of all variables at compile time_)
 - The compiler can usually infer what type we want to use based on the value and how we use it.We must annotate types whenever we intend to convert them to other types later.
+- For more on Datatypes [click me 💀](/docs/0x03data-types.md)
 
