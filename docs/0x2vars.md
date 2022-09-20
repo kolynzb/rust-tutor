@@ -11,9 +11,10 @@
 ## Define a constant.
 
 - We use the `const` keyword.
-- you must explicitly define a type and the name must be uppercase.
+- you must explicitly define a type and the name must be uppercase.(_if its two words separate them with a hyphen_)
   `const ID:i32 =001;`
 - This is simply a constant called "ID" with a type of interger 32bit.
+- Constants may be set only to a constant expression, not to the result of a function call or any other value that could only be computed at runtime.
 
 ## Assigning multiple varibles.
 

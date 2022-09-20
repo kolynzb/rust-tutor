@@ -5,6 +5,8 @@ mod strings;
 mod tuples;
 mod arrays;
 mod vectors;
+
+mod guessing_game;
 fn main() {
     // 01-PRINT AND FORMATTING.
     print::run();
@@ -20,4 +22,10 @@ fn main() {
     arrays::run();
     // 07-Vectors
     vectors::run();
+    
+    // Rust Book
+    
+    // 02-Guessing Games.
+    guessing_game::run();
+    
 }

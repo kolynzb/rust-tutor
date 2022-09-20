@@ -15,19 +15,25 @@
 
 # Extensions to install
 
-- rust (rls) by rust-lang for linting
-- better TOML by bung... for toml syntax highlighting.
+- rust (rls) by rust-lang _for linting_
+- better TOML by bung... _for toml syntax highlighting_.
 
 # Folder structure
 
 - `Cargo.toml` - is pretty much like package.json for node.
 - `src` is where you write all your rust code.
 
+# Important commands
+
 - To compile and run the cargo project use.
   `cargo run `
 - To build the project.
   `cargo build`
 - If your building for production. add the `--release` flag.
+- To go through documentation.
+  `cargo doc --open`
+- To update crates
+  `cargo update`
 
 - Oh btw rust files cant start with a number as a name so `1print.rs` wont work.
 
@@ -42,3 +48,9 @@
 - [Vectors in Rust](/docs/0x07-Vectors.md) with [code](/src/vectors.rs)
 
 <!-- 52:49 -->
+
+# Summaries From [Rust Book](./docs/rust-programming-language-steve-klabnik.pdf).
+
+- [Chpt 2 - Guessing Game](/docs/rust_book/0x02-GuessingGame.md) with [code](/src/guessing_game.rs)
+
+- [Chpt 3 - Common Programming Concepts In Rust](/docs/rust_book/0x03-Common_Programming_Concepts.md) with [code](/src/)
