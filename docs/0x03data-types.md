@@ -82,6 +82,8 @@ let happy = '😥';
 let emoji:char = '\u{1F600}';
 ```
 
+- To get unicode characters [Click Me 😋](https://www.toptal.com/designers/htmlarrows/punctuation/middle-dot/)
+
 # Coumpound Types
 
 - These can group multiple values into one type. Rust has two
@@ -92,5 +94,5 @@ let emoji:char = '\u{1F600}';
 - A tuple is a general way of grouping together some number of other values with a variety of types into one compound type. Tuples have a fixed length: once declared, they cannot grow or shrink in size._For more [click me 😉](./0x05-Tuples.md)_
 
 ## Arrays
-- Another way to have a collection of multiple values is with an array. Unlike a tuple, every element of an array must have the same type. Arrays in Rust are different from arrays in some other languages because arrays in Rust have a fixed length, like tuples.[Click For more info 🔥](/docs/0x06-Arrays.md).
 
+- Another way to have a collection of multiple values is with an array. Unlike a tuple, every element of an array must have the same type. Arrays in Rust are different from arrays in some other languages because arrays in Rust have a fixed length, like tuples.[Click For more info 🔥](/docs/0x06-Arrays.md).
