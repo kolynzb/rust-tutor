@@ -55,7 +55,7 @@
 - [Arrays in Rust](/docs/0x06-Arrays.md) with [code](/src/arrays.rs)
 - [Vectors in Rust](/docs/0x07-Vectors.md) with [code](/src/vectors.rs)
 - [Functions in Rust](/docs/0x08-Functions.md).
-- [Control Flow in Rust](/docs/0x09-Control_flow.md) with [code](/src/control_flow.rs.rs)
+- [Control Flow in Rust](/docs/0x09-Control_flow.md) with [code](/src/control_flow.rs)
 
 <!-- 52:49 -->
 
