@@ -105,3 +105,197 @@
 
 - To ensure memory safety, Rust considers s1 to no longer be valid and, therefore, Rust doesn’t need to free anything when s1 goes out of scope. Check out what happens when you try
   to use s1 after s2 is created; it won’t work.
+
+## Ways That Variables and Data Interact: Clone
+
+- If we do want to [_deeply copy_](https://www.geeksforgeeks.org/difference-between-shallow-and-deep-copy-of-a-class/) the heap data of the String, not just the stack data, we can use a common method called `clone`.Here Heap data is copied
+
+```rs
+let s1 = String::from("hello");
+let s2 = s1.clone();
+println!("s1 = {}, s2 = {}", s1, s2);
+```
+
+## Stack-Only Data: Copy
+
+- There’s another wrinkle we haven’t talked about yet. The [code](#ways-that-variables-and-data-interactmove) using integersworks and is valid.
+- But this code seems to contradict what we just learned: we don’t have a call to `clone`, but x is still valid and wasn’t moved into y.The reason is that types such as integers that have a known size at compile time are stored entirely on the stack, so copies of the actual values are quick to make. That means there’s no reason we would want to prevent x from being valid after we create the variable y. In other words, there’s no difference between deep and shallow copying here, so calling clone wouldn’t do anything different from the usual shallow copying and we can leave it out.Rust has a special annotation called `Copy` trait
+- Here are some of the types that are Copy:
+  • All the integer types, such as u32.
+  • The Boolean type, bool, with values true and false.
+  • The character type, char.
+  • All the floating point types, such as f64.
+  • Tuples, if they only contain types that are also Copy. For example, (i32,
+  i32) is Copy, but (i32, String) is not.
+
+## Ownership & Functions.
+
+- The semantics for passing a value to a function are similar to those for assigning a value to a variable. Passing a variable to a function will move or copy, just as assignment does
+
+```rs
+fn main() {
+let s = String::from("hello"); // s comes into scope
+takes_ownership(s); // s's value moves into the function...
+// ... and so is no longer valid here
+let x = 5; // x comes into scope
+makes_copy(x); // x would move into the function,
+// but i32 is Copy, so it's okay to
+// still use x afterward
+} // Here, x goes out of scope, then s. But because s's value was moved,
+// nothing special happens.
+fn takes_ownership(some_string: String) { // some_string comes into scope
+println!("{}", some_string);
+} // Here, some_string goes out of scope and `drop` is called. The backing
+// memory is freed.
+fn makes_copy(some_integer: i32) { // some_integer comes into scope
+println!("{}", some_integer);
+} // Here, some_integer goes out of scope. Nothing special happens.
+```
+
+- If we tried to use s after the call to takes_ownership, Rust would throw a compile-time error. These static checks protect us from mistakes. Try adding code to main that uses s and x to see where you can use them and where the ownership rules prevent you from doing so.
+
+## Return Values & Scope
+
+- Return values can also transfer ownership.
+
+```rs
+fn main() {
+let s1 = gives_ownership(); // gives_ownership moves its return
+// value into s1
+let s2 = String::from("hello"); // s2 comes into scope
+let s3 = takes_and_gives_back(s2); // s2 is moved into
+// takes_and_gives_back, which also
+// moves its return value into s3
+} // Here, s3 goes out of scope and is dropped. s2 goes out of scope but was
+// moved, so nothing happens. s1 goes out of scope and is dropped.
+fn gives_ownership() -> String { // gives_ownership will move its
+// return value into the function
+// that calls it
+let some_string = String::from("hello"); // some_string comes into scope
+some_string // some_string is returned and
+// moves out to the calling
+// function
+}
+// takes_and_gives_back will take a String and return one
+fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
+// scope
+a_string // a_string is returned and moves out to the calling function
+}
+```
+
+- The ownership of a variable follows the same pattern every time: assigning a value to another variable moves it. When a variable that includes data on the heap goes out of scope, the value will be cleaned up by drop unless the data has been moved to be owned by another variable. Taking ownership and then returning ownership with every function is a bit tedious. What if we want to let a function use a value but not take ownership? It’s quite annoying that anything we pass in also needs to be passed back if we want to use it again, in addition to any data resulting from the body of the function that we might want to return as well.
+- It’s possible to return multiple values using a tuple.
+
+```rs
+fn main() {
+  let s1 = String::from("hello");
+  let (s2, len) = calculate_length(s1);
+  println!("The length of '{}' is {}.", s2, len);
+}
+fn calculate_length(s: String) -> (String, usize) {
+  let length = s.len(); // len() returns the length of a String
+  (s, length)
+}
+```
+
+- But this is too much ceremony and a lot of work for a concept that should be common. Luckily for us, Rust has a feature for this concept, called [_references_](#references-and-borrowing)
+
+## References and Borrowing
+
+- The issue with the tuple code is that we have to return the
+  String to the calling function so we can still use the String after the call to calculate_length, because the String was moved into calculate_length.
+- Here is how you would define and use a calculate_length function that has a reference to an object as a parameter instead of taking ownership of the value.
+
+```rs
+fn main() {
+  let s1 = String::from("hello");
+  let len = calculate_length(&s1);
+  println!("The length of '{}' is {}.", s1, len);
+}
+fn calculate_length(s: &String) -> usize {
+  s.len()
+}
+```
+
+- These ampersands are references.
+<center>
+  <img src="../images/ref.jpg" alt="drawing" style="width:300px;"/>
+</center>
+
+- The `&s1` syntax lets us create a reference that refers to the value of s1 but does not own it. Because it does not own it, the value it points to will not be dropped when the reference goes out of scope.Likewise, the signature of the function uses `&` to indicate that the type of the parameter s is a reference. Let’s add some explanatory annotations
+
+```rs
+fn calculate_length(s: &String) -> usize { // s is a reference to a String
+s.len()
+} // Here, s goes out of scope. But because it does not have ownership of
+// what it refers to, nothing happens
+```
+
+- The scope in which the variable s is valid is the same as any function parameter’s scope, but we don’t drop what the reference points to when it goes out of scope because we don’t have ownership. When functions have references as parameters instead of the actual values, we don’t need to return the values in order to give back ownership, because we never had ownership.
+- We call having references as function parameters borrowing. As in real life, if a person owns something, you can borrow it from them. When you’re done, you have to give it back
+- So if we try to modify what we borrowed we get an error.
+
+```rs
+fn main() {
+let s = String::from("hello");
+change(&s);
+}
+fn change(some_string: &String) {
+some_string.push_str(", world");
+}
+```
+
+## Mutable References
+
+```rs
+fn main() {
+let mut s = String::from("hello");
+change(&mut s);
+}
+fn change(some_string: &mut String) {
+some_string.push_str(", world");
+}
+```
+
+- But mutable references have one big restriction: you can have only one mutable reference to a particular piece of data in a particular scope.
+- The benefit of having this restriction is that Rust can prevent data races at compile time. A data race is similar to a race condition and happens when these three behaviors occur:
+  • Two or more pointers access the same data at the same time.
+  • At least one of the pointers is being used to write to the data.
+  • There’s no mechanism being used to synchronize access to the data
+- A similar rule exists for combining mutable and immutable references
+
+```rs
+let mut s = String::from("hello");
+let r1 = &s; // no problem
+let r2 = &s; // no problem
+let r3 = &mut s; // BIG PROBLEM
+println!("{}, {}, and {}", r1, r2, r3);
+```
+
+## Dangling References
+
+- a pointer that references a location in memory that may have been given to someone else, by freeing some memory while preserving a pointer to that memory.
+- the compiler guarantees that references will
+  never be dangling references.
+
+## The Rules of References
+
+- Let’s recap what we’ve discussed about references:
+  • At any given time, you can have either but not both of the following: one
+  mutable reference or any number of immutable references.
+  • References must always be valid.
+  Next, we’ll look at a different kind of reference: slices
+
+## The Slice Type
+
+- They dont have ownership. Slices let you reference a contiguous sequence of elements in a collection rather than the whole collection.
+
+### String Slices
+
+```rs
+let s = String::from("hello world");
+let hello = &s[0..5];
+u let world = &s[6..11];
+```
+
+`[starting _index..ending_index]`
