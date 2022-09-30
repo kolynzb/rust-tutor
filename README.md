@@ -42,7 +42,8 @@
 - [Chpt 2 - Guessing Game](/docs/rust_book/0x02-GuessingGame.md) with [code](/src/guessing_game.rs)
 
 - [Chpt 3 - Common Programming Concepts In Rust](/docs/rust_book/0x03-Common_Programming_Concepts.md) with [code](/src/)
-- [Chpt 4 - Ownership in Rust](/docs/rust_book/0x03-Common_Programming_Concepts.md) with [code](/src/)
+- [Chpt 4 - Ownership in Rust](/docs/rust_book/0x04-Ownership.md) with [code](/src/)
+- [Chpt 5 - Using Struts To Structure Related Data](/docs/rust_book/0x05-Struts.md) with [code](/src/)
 
 # Contents (More Specific)
 
