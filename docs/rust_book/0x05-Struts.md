@@ -105,3 +105,39 @@ fn main() {
 }
 
 ```
+
+- Rust does include functionality to print debugging information, but we have to explicitly opt in to make that functionality available for our struct. To do that, we add the annotation `#[derive(Debug)]` just before the struct definition.
+- note: in format strings you may be able to use `{:?}` (or `{:#?}` for pretty-print) instead
+- Putting the specifier `:?` inside the curly brackets tells println! we want to use an output format called Debug. The _Debug trait_ enables us to print our struct in a way that is useful for developers so we can see its value while we’re debugging our code.
+
+## Defining Methods
+
+- Methods are similar to functions: they’re declared with the fn keyword and their name, they can have parameters and a return value, and they contain some code that is run when they’re called from somewhere else
+- Methods are different from functions in that they’re defined within the context of a struct.
+- Let’s change the [area](/src/struts.rs) function that has a Rectangle instance as a parameter and instead make an area method defined on the `Rectangle` struct.
+
+```rs
+#[derive(Debug)]
+struct Rectangle {
+  width: u32,
+  height: u32,
+}
+
+impl Rectangle {
+  fn area(&self) -> u32 {
+    self.width * self.height
+  }
+}
+
+fn main() {
+
+  let rect1 = Rectangle { width: 30, height:50 };
+  println!("The area of the rectangle is {} square pixels.",
+  rect1.area());
+
+}
+```
+
+<!-- Page 93 -->
+
+- We start an impl (_implemantation block_)
