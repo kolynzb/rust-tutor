@@ -5,6 +5,7 @@ mod strings;
 mod tuples;
 mod arrays;
 mod vectors;
+mod struts;
 
 mod guessing_game;
 fn main() {
@@ -27,5 +28,7 @@ fn main() {
     
     // 02-Guessing Games.
     guessing_game::run();
+    // 03-Guessing Games.
+    struts::run();
     
 }
