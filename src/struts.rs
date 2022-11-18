@@ -4,7 +4,7 @@ struct Rectangle {
     }
     
 
-    pub fn run() {
+pub fn run() {
         // Strut to calculate area 
         let rect1 = Rectangle { width: 30, height: 50 };
         println!( "The area of the rectangle is {} square pixels.",
