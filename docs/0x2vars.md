@@ -34,4 +34,4 @@
 - [Rust lang Book](rust-programming-language-steve-klabnik.pdf)
 
 
-## [Next (_Datatypes in Rust_) 👉🏿](0x2vars.md)
+## [Next (_Datatypes in Rust_) 👉🏿](0x03data-types.md)
