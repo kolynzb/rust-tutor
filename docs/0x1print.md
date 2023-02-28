@@ -1,6 +1,8 @@
-# Must knows
+# Must knows Before we start
 
-- Functions are declared with `fn` keyword and the main program must have a main fuction.
+- Functions are declared with `fn` keyword and the main program must have a `main` fuction.
+
+`src/main.rs`
 
 ```rs
 fn main(){
@@ -8,39 +10,72 @@ fn main(){
 }
 ```
 
-- `pub` makes the function public.
-- `mod` imports a funtion from one file to another.
-- Print statements in rust are written using a `println!("hello ")` macro(_function_).
+- `pub` keyword makes the function public.
+- `mod` keayword imports a funtion from another file .
+- Print statements are written using the `println!("hello")` macro (_function_).
 
-`main.rs`
+- To Call Function From Another File
+
+`src/print.rs`
 
 ```rs
-mod print;
+pub fn run(){ // function made public
+    println!("hello");
+}
+```
+
+`src/main.rs`
+
+```rs
+mod print; // accessing public module
 
 fn main() {
-    // to call the function in print
+    // To call the function in print.rs
     print::run();
-
 }
 ```
 
 # Basic Print Formatting In Rust.
 
-- To print an integer or a variable you would have to use place holders.
+- To print an integer or a variable you would have to use `{}` as placeholders.
+
   `println!("{}",2)`
-- To use multiple placeholders to print
+
+- To use multiple placeholders.
+
   `println!("{} is {} ","Collins","Awesome");`
-- If you want to repeat a single variable multiple time in the string you can use _positional arguements_.for instance if i wanted to print "Kolynz is learning rust and Kolynz likes rust"
-  `println!("{0} is learning {1} and {0} likes {1}","kolynz","rust",);`
-- Or you can use named arguements.(_john likes mangoes_)
+
+- Use **_positional arguements_** to repeat a single variable multiple times in the string. For instance if i wanted to print _"Kolynz is learning rust, and Kolynz likes rust"_
+
+  `println!("{0} is learning {1}, and {0} likes {1}","kolynz","rust",);`
+
+- Or you can use **_named arguements_**. ( _john likes mangoes_)
+
   ` println!("{name} likes to eat {food}",name = "john",food = "Mangoes")`
-- _Placehoder traits_ - help when you want to out put something in a particular format for instance out put 10 in binary , hexadecimal and octal.(_Binary: 1010 Hex:a Octal:12_).
+
+- **_Placehoder traits_** - help when you want to out put something in a particular format. For instance, to output 10 in binary , hexadecimal and octal. ( _Binary: 1010 Hex:a Octal:12_ ).
+
   `println!("Binary: {:b} Hex:{:x} Octal:{:o}",10,10,10);`
 
-- Perform basic Arithmetic operations.
+- To perform basic Arithmetic operations.
+
   `println!("10 + 10 = {}",10 + 10);`
-- Placeholder for debug traits.
+- Placeholder for ___debug traits___. (_if you wanted to print an array or tuple_)
+
   `println!("{:?}",(12,true,"hello")); `
 
-- To get user input use import std `use std::io` and
-  `let mut name=String::new();`
+- To get user input use __std__ module. ( _Make sure the variable that you want to populate with the input is `mutable`_ )
+
+  ```rs
+  use std::io //std library import
+
+  fn main() {
+    let mut name=String::new();
+  }
+  ```
+
+### References
+- Rust Lang Book
+
+
+## [Next (Variables in Rust) 👉🏿](0x2vars.md)
